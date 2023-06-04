@@ -58,6 +58,7 @@ function userAgreement() {
 
   async function addRecord(record) {
     await connectToDB();
+    // id, amount: newAmount, owner
     const newCard = {
       amount: record.amount,
       owner: record.owner,

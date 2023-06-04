@@ -23,7 +23,7 @@ export const ContSection = styled.section`
   grid-template: 1fr / minmax(10px, 1fr) minmax(auto, 1320px) minmax(10px, 1fr);
 `;
 export const Basket = styled.div`
-cursor: pointer;
+  cursor: pointer;
   border: solid 1px;
   width: 100px;
   border-radius: 5px;
@@ -31,7 +31,9 @@ cursor: pointer;
   align-items: center;
   justify-items: center;
   padding: 10px;
+  background-color: aliceblue;
   &:hover {
+    background-color: #fff;
     box-shadow: 0px 12px 20px 1px rgba(0, 0, 0, 0.1);
   }
 `;
