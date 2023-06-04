@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import AppFunc from "./App.Func";
+import "./App.css";
+import Content from "./components/content/Content";
+import Shops from "./components/Shops";
+import { Basket, ContSection, Header } from "./App.styled";
 
 function App() {
+  const { items, status, error } = AppFunc();
+  const [element, setElement] = useState({});
+
+  // console.log('element',element)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header>
+        <div>Shop Delivery React</div>
+        <Basket>Basket</Basket>
+      </Header>
+      <ContSection>
+        {status && element.id === undefined && (
+          <Content items={items} setElement={setElement} />
+        )}
+        {element.id !== undefined && (
+          <Shops element={element} setElement={setElement} />
+        )}
+      </ContSection>
     </div>
   );
 }
