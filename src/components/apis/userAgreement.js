@@ -1,5 +1,3 @@
-// import initialState from "../../shops.json";
-import { nanoid } from "nanoid";
 import moment from "moment/moment";
 
 function userAgreement() {
@@ -27,7 +25,10 @@ function userAgreement() {
         const objStore = db.createObjectStore(dbName, { keyPath: "id" });
         objStore.createIndex("created", "created", { unique: false });
         objStore.createIndex("amount", "amount", { unique: false });
+        objStore.createIndex("price", "price", { unique: false });
         objStore.createIndex("owner", "owner", { unique: false });
+        objStore.createIndex("dish", "dish", { unique: false });
+        objStore.createIndex("name", "name", { unique: false });
         objStore.createIndex("id", "id", { unique: true });
         // initialState.forEach((item) => objStore.add(item));
       };
@@ -55,16 +56,17 @@ function userAgreement() {
 
     return { data: ReData, status, masage };
   }
-
+  
   async function addRecord(record) {
     await connectToDB();
-    // id, amount: newAmount, owner
     const newCard = {
+      dish: record.dish,
+      name: record.name,
+      price: record.price,
       amount: record.amount,
       owner: record.owner,
       created: moment().format("DD.MM.YYYY  (HH:mm)"),
       id: record.id,
-      //   id: nanoid(),
     };
     await new Promise((resolve, reject) => {
       const transaction = db.transaction([dbName], "readwrite");
@@ -105,6 +107,9 @@ function userAgreement() {
 
   async function editRecord(record) {
     const newRec = {
+      dish: record.dish,
+      name: record.name,
+      price: record.price,
       amount: record.amount,
       owner: record.owner,
       created: moment().format("DD.MM.YYYY  (HH:mm)"),

@@ -6,7 +6,7 @@ export const Header = styled.header`
   height: 70px;
   background-color: #bbbaba;
   display: grid;
-  grid-template: 1fr /1fr 0.3fr;
+  grid-template: 1fr /1fr 0.3fr 0.3fr;
   padding: 0 20px;
   justify-content: center;
   justify-items: center;
@@ -35,5 +35,19 @@ export const Basket = styled.div`
   &:hover {
     background-color: #fff;
     box-shadow: 0px 12px 20px 1px rgba(0, 0, 0, 0.1);
+  }
+`;
+export const InputSearch = styled.input`
+  outline: none;
+  border: solid 1px;
+  width: 180px;
+  border-radius: 5px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 10px;
+  background-color: aliceblue;
+  &:hover {
+    background-color: #fff;
   }
 `;
