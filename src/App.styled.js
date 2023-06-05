@@ -4,7 +4,7 @@ export const Header = styled.header`
   position: fixed;
   width: 100vw;
   height: 70px;
-  background-color: #bbbaba;
+  background-color: cadetblue;
   display: grid;
   grid-template: 1fr /1fr 0.3fr 0.3fr;
   padding: 0 20px;

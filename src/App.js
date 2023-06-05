@@ -6,9 +6,10 @@ import Shops from "./components/Shops";
 import { Basket, ContSection, Header, InputSearch } from "./App.styled";
 import InBasket from "./components/Basket/InBasket";
 import FindOrder from "./components/findOrder/FindOrder";
+import Notif from "./components/notif/notif";
 
 function App() {
-  const { items, status, error } = AppFunc();
+  const { items, status, error, setError } = AppFunc();
   const [element, setElement] = useState({});
   const [basket, setBasket] = useState(false);
   const [search, setSearch] = useState("");
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div>
+      <Notif setError={setError} error={error} />
       <InBasket
         basket={basket}
         items={items}
@@ -33,8 +35,12 @@ function App() {
         setElement={setElement}
       />
 
-      <Header>
-        <div>Shop Delivery React</div>
+      <Header>      
+        <h2>
+          {element.id !== undefined
+            ? element.representative
+            : "Shop Delivery React"}
+        </h2>
         <InputSearch
           type='tel'
           name='phone'

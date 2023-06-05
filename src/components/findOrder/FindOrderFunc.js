@@ -39,6 +39,6 @@ const FindOrderFunc = (search) => {
     }
   }, [apiOrder, search.length, selectiondb]);
 
-  return { error, found };
+  return { error, found, setError };
 };
 export default FindOrderFunc;

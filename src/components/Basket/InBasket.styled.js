@@ -33,7 +33,7 @@ export const BasketContentLi = styled.li`
   grid-template: 1fr / 1fr;
   justify-items: center;
   align-items: center;
-  background-color: aliceblue;
+  background-color: antiquewhite;
 `;
 export const BasketContentcard = styled.div`
   border: solid 1px;

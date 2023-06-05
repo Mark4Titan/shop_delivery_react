@@ -30,6 +30,6 @@ const AppFunc = () => {
         .catch((error) => setError(error));
   }, [api, selectiondb]);
 
-  return { items: middleState, status: selectiondb, error: error };
+  return { items: middleState, status: selectiondb, error: error, setError };
 };
 export default AppFunc;

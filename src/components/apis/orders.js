@@ -64,6 +64,7 @@ function userOrders() {
   }
 
   async function addRecordOrders(record) {
+    console.log("record", record);
     await connectToDBOrders();
     const newCard = {
       order: {

@@ -29,7 +29,7 @@ const ShopsFunc = () => {
     }
   }, [apiAgreement, selectiondb]);
 
-  const AddProduct = (el, amount, owner) => {
+  const AddProduct = (el, amount, owner, shop) => {
     const id = el.id;
     const dish = el.dish;
     const name = el.English.name;
@@ -41,7 +41,7 @@ const ShopsFunc = () => {
 
     if (found.length === 0) {
       apiAgreement
-        .addRecord({ id, amount: newAmount, owner, dish, name, price })
+        .addRecord({ id, amount: newAmount, owner, dish, name, price, shop })
         .then(({ data, status, masage }) => {
           if (status === 404) {
             setError(masage);
@@ -51,7 +51,7 @@ const ShopsFunc = () => {
         });
     } else if (newAmount !== 0) {
       apiAgreement
-        .editRecord({ id, amount: newAmount, owner, dish, name, price })
+        .editRecord({ id, amount: newAmount, owner, dish, name, price, shop })
         .then(({ data, status, masage }) => {
           if (status === 404) {
             setError(masage);
@@ -65,7 +65,7 @@ const ShopsFunc = () => {
         });
     } else {
       apiAgreement
-        .deleteRecord({ id, amount: newAmount, owner, dish, name, price })
+        .deleteRecord({ id, amount: newAmount, owner, dish, name, price, shop })
         .then(({ data, status, masage }) => {
           if (status === 404) {
             setError(masage);

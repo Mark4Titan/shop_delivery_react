@@ -29,6 +29,7 @@ function userAgreement() {
         objStore.createIndex("owner", "owner", { unique: false });
         objStore.createIndex("dish", "dish", { unique: false });
         objStore.createIndex("name", "name", { unique: false });
+        objStore.createIndex("shop", "shop", { unique: false });
         objStore.createIndex("id", "id", { unique: true });
         // initialState.forEach((item) => objStore.add(item));
       };
@@ -65,6 +66,7 @@ function userAgreement() {
       price: record.price,
       amount: record.amount,
       owner: record.owner,
+      shop: record.shop,
       created: moment().format("DD.MM.YYYY  (HH:mm)"),
       id: record.id,
     };
@@ -112,6 +114,7 @@ function userAgreement() {
       price: record.price,
       amount: record.amount,
       owner: record.owner,
+      shop: record.shop,
       created: moment().format("DD.MM.YYYY  (HH:mm)"),
       id: record.id,
     };

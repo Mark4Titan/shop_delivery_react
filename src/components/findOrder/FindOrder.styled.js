@@ -5,7 +5,7 @@ export const FindOrderUl = styled.ul`
   display: grid;
   padding: 10px;
   justify-items: center;
-  grid-template: 200px / minmax(300px, 1fr);
+  grid-template: 200px / auto;
   grid-gap: 40px;
 `;
 export const FindOrderLi = styled.li`  
@@ -15,7 +15,7 @@ export const FindOrderLi = styled.li`
   border: solid 1px #a4a4a4;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: antiquewhite;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   &:hover {
     border: solid 1px;

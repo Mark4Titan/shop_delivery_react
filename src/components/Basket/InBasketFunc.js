@@ -61,7 +61,10 @@ const InBasketFunc = (basket, setBasket, setElement) => {
   }, [apiAgreement, basket, selectiondb]);
 
   const onOrder = (newOrder, id, inputs) => {
-    // console.log("newOrder", newOrder, "id-", id);
+    if (inputs.phone === "" || inputs.address === "") {
+      return;
+    }
+    
     apiOrder
       .addRecordOrders({ ...newOrder, id, ...inputs })
       .then(({ data, status, masage }) => {
@@ -72,6 +75,9 @@ const InBasketFunc = (basket, setBasket, setElement) => {
           newOrder.forEach((element) => {
             if (element.id !== undefined) DellBasket(element.id);
           });
+          setError(
+            `Order accepted. You can know the order by phone number: ${inputs.phone}`
+          );
         }
       });
   };
@@ -92,6 +98,7 @@ const InBasketFunc = (basket, setBasket, setElement) => {
   return {
     error,
     basketClient,
+    setError,
     onOrder,
   };
 };
