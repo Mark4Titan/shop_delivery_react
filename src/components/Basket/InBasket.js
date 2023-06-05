@@ -20,6 +20,7 @@ const InBasket = ({ basket, setBasket, setElement }) => {
   );
   const [inputs, setInputs] = useState({ phone: "", address: "" });
 
+ 
 
   return (
     <>
@@ -30,6 +31,7 @@ const InBasket = ({ basket, setBasket, setElement }) => {
             <h2>Basket</h2>
             {Object.keys(basketClient).map((el, pos) => (
               <BasketContentLi key={`keyBox_${basketClient[el].id}_${pos}`}>
+                <h2>{basketClient[el].shop}</h2>
                 {basketClient[el].map((frag, pos2) => (
                   <BasketContentcard key={`key_${pos2}_${el}`}>
                     <h3>{frag.name}</h3>

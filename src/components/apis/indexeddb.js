@@ -18,7 +18,7 @@ function ApiIndexedDB() {
       request.onsuccess = (event) => {
         db = event.target.result;
         status = event.target.result ? 200 : 404;
-        // console.log("Connected to indexedDB", event);
+        
         resolve();
       };
 
@@ -42,7 +42,7 @@ function ApiIndexedDB() {
     const objectStore = transaction.objectStore(dbName);
     const data = await new Promise((resolve, reject) => {
       const request = objectStore.getAll();
-      // console.log(" async function getData", request)
+      
       request.onerror = (event) => {
         reject(event.target.error);
       };

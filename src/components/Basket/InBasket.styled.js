@@ -15,7 +15,7 @@ export const BasketBox = styled.div`
 `;
 
 export const BasketContent = styled.ul`
-//   border: solid 1px;
+width: 245px;
   padding: 10px;
   margin-top: 110px;
   margin-bottom: 150px;

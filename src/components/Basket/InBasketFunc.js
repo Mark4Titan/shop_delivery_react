@@ -27,7 +27,7 @@ const InBasketFunc = (basket, setBasket, setElement) => {
             setError(masage);
           } else {
             const newBasket = data.reduce((acc, item) => {
-              const { owner, amount, created, id, price, dish, name } = item;
+              const { owner, amount, created, id, price, dish, name, shop } = item;
               const allPrice = amount * price;
 
               if (acc[owner]) {
@@ -41,11 +41,13 @@ const InBasketFunc = (basket, setBasket, setElement) => {
                   name,
                 });
                 acc[owner].allPrice += allPrice;
+                acc[owner].shop = shop;
               } else {
                 acc[owner] = [
-                  { amount, created, id, owner, price, dish, name },
+                  { amount, created, id, owner, price, dish, name, shop },
                 ];
                 acc[owner].allPrice = allPrice;
+                acc[owner].shop = shop;
               }
 
               return acc;
@@ -66,12 +68,11 @@ const InBasketFunc = (basket, setBasket, setElement) => {
     }
     
     apiOrder
-      .addRecordOrders({ ...newOrder, id, ...inputs })
+      .addRecordOrders({...newOrder, id, ...inputs })
       .then(({ data, status, masage }) => {
         if (status === 404) {
           setError(masage);
-        } else {
-          // setOrder((prevState) => [...prevState, data]);
+        } else {          
           newOrder.forEach((element) => {
             if (element.id !== undefined) DellBasket(element.id);
           });
